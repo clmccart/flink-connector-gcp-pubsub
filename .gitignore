@@ -36,3 +36,8 @@ tools/flink
 tools/flink-*
 tools/releasing/release
 tools/japicmp-output
+.vscode/*
+flink-connector-gcp-pubsub/archunit-violations/*
+flink-examples-streaming-gcp-pubsub/deploy.sh
+flink-examples-streaming-gcp-pubsub/Dockerfile
+flink-examples-streaming-gcp-pubsub/pubsub.yaml
