@@ -22,6 +22,9 @@ import org.apache.flink.api.common.serialization.SimpleStringSchema;
 import org.apache.flink.api.java.utils.ParameterTool;
 import org.apache.flink.streaming.api.datastream.DataStream;
 import org.apache.flink.streaming.api.environment.StreamExecutionEnvironment;
+import org.apache.flink.streaming.connectors.gcp.pubsub.v2.PubSubDeserializationSchemaV2;
+import org.apache.flink.streaming.connectors.gcp.pubsub.v2.PubSubSerializationSchema;
+import org.apache.flink.streaming.connectors.gcp.pubsub.v2.PubSubSink;
 import org.apache.flink.streaming.connectors.gcp.pubsub.v2.PubSubSource;
 
 import com.google.pubsub.v1.ProjectSubscriptionName;
@@ -89,7 +92,7 @@ public class PubSubSourceV2Example {
                 env.fromSource(
                         PubSubSource.<String>builder()
                                 .setDeserializationSchema(
-                                        PubSubDeserializationSchema.dataOnly(
+                                        PubSubDeserializationSchemaV2.dataOnly(
                                                 new SimpleStringSchema()))
                                 .setProjectName(subscriptionProject)
                                 .setSubscriptionName(subscriptionName)
