@@ -18,6 +18,9 @@ package org.apache.flink.streaming.connectors.gcp.pubsub.v2;
 
 import org.apache.flink.api.connector.sink2.Sink;
 import org.apache.flink.api.connector.sink2.SinkWriter;
+import org.apache.flink.streaming.connectors.gcp.pubsub.v2.internal.sink.PubSubFlushablePublisher;
+import org.apache.flink.streaming.connectors.gcp.pubsub.v2.internal.sink.PubSubPublisherCache;
+import org.apache.flink.streaming.connectors.gcp.pubsub.v2.internal.sink.PubSubSinkWriter;
 import org.apache.flink.streaming.connectors.gcp.pubsub.v2.util.EmulatorEndpoint;
 
 import com.google.api.gax.core.FixedCredentialsProvider;
@@ -30,9 +33,6 @@ import com.google.auto.value.AutoValue;
 import com.google.cloud.pubsub.v1.Publisher;
 import com.google.cloud.pubsub.v1.TopicAdminSettings;
 import com.google.common.base.Optional;
-import com.google.pubsub.flink.internal.sink.PubSubFlushablePublisher;
-import com.google.pubsub.flink.internal.sink.PubSubPublisherCache;
-import com.google.pubsub.flink.internal.sink.PubSubSinkWriter;
 import com.google.pubsub.v1.TopicName;
 import io.grpc.ManagedChannelBuilder;
 
