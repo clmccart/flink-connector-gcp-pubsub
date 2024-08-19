@@ -39,3 +39,4 @@ tools/japicmp-output
 *Dockerfile
 *launch.sh
 *pubsub.yaml
+*.vscode/*
