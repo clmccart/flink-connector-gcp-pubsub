@@ -29,6 +29,10 @@ import org.apache.flink.configuration.Configuration;
 import org.apache.flink.core.io.SimpleVersionedSerializer;
 import org.apache.flink.metrics.MetricGroup;
 import org.apache.flink.streaming.connectors.gcp.pubsub.proto.PubSubEnumeratorCheckpoint;
+import org.apache.flink.streaming.connectors.gcp.pubsub.v2.internal.source.enumerator.PubSubCheckpointSerializer;
+import org.apache.flink.streaming.connectors.gcp.pubsub.v2.internal.source.split.SubscriptionSplit;
+import org.apache.flink.streaming.connectors.gcp.pubsub.v2.internal.source.split.SubscriptionSplitSerializer;
+import org.apache.flink.streaming.connectors.gcp.pubsub.v2.util.EmulatorEndpoint;
 import org.apache.flink.util.UserCodeClassLoader;
 
 import com.google.api.gax.batching.FlowControlSettings;
@@ -44,16 +48,12 @@ import com.google.cloud.pubsub.v1.Subscriber;
 import com.google.cloud.pubsub.v1.SubscriptionAdminSettings;
 import com.google.common.base.Optional;
 import com.google.common.base.Preconditions;
-import com.google.pubsub.flink.internal.source.enumerator.PubSubCheckpointSerializer;
 import com.google.pubsub.flink.internal.source.enumerator.PubSubSplitEnumerator;
 import com.google.pubsub.flink.internal.source.reader.AckTracker;
 import com.google.pubsub.flink.internal.source.reader.PubSubAckTracker;
 import com.google.pubsub.flink.internal.source.reader.PubSubNotifyingPullSubscriber;
 import com.google.pubsub.flink.internal.source.reader.PubSubSourceReader;
 import com.google.pubsub.flink.internal.source.reader.PubSubSplitReader;
-import com.google.pubsub.flink.internal.source.split.SubscriptionSplit;
-import com.google.pubsub.flink.internal.source.split.SubscriptionSplitSerializer;
-import com.google.pubsub.flink.util.EmulatorEndpoint;
 import com.google.pubsub.v1.ProjectSubscriptionName;
 import io.grpc.ManagedChannelBuilder;
 import org.threeten.bp.Duration;
@@ -75,7 +75,7 @@ public abstract class PubSubSource<OutputT>
 
     public abstract String subscriptionName();
 
-    public abstract PubSubDeserializationSchema<OutputT> deserializationSchema();
+    public abstract PubSubDeserializationSchemaV2<OutputT> deserializationSchema();
 
     public abstract Optional<Long> maxOutstandingMessagesCount();
 
@@ -151,7 +151,7 @@ public abstract class PubSubSource<OutputT>
     @Override
     public SourceReader<OutputT, SubscriptionSplit> createReader(SourceReaderContext readerContext)
             throws Exception {
-        PubSubDeserializationSchema<OutputT> schema = deserializationSchema();
+        PubSubDeserializationSchemaV2<OutputT> schema = deserializationSchema();
         schema.open(
                 new DeserializationSchema.InitializationContext() {
                     @Override
@@ -235,7 +235,7 @@ public abstract class PubSubSource<OutputT>
          * <p>Setting this option is required to build {@link PubSubSource}.
          */
         public abstract Builder<OutputT> setDeserializationSchema(
-                PubSubDeserializationSchema<OutputT> deserializationSchema);
+                PubSubDeserializationSchemaV2<OutputT> deserializationSchema);
 
         /**
          * Sets the max number of messages that can be outstanding to a StreamingPull connection.

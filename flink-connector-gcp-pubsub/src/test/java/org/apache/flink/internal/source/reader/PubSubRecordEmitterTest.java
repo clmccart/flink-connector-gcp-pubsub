@@ -16,11 +16,11 @@
 package com.google.pubsub.flink.internal.source.reader;
 
 import org.apache.flink.api.connector.source.SourceOutput;
+import org.apache.flink.streaming.connectors.gcp.pubsub.v2.internal.source.split.SubscriptionSplitState;
 
 import com.google.protobuf.ByteString;
 import com.google.protobuf.util.Timestamps;
 import com.google.pubsub.flink.PubSubDeserializationSchema;
-import com.google.pubsub.flink.internal.source.split.SubscriptionSplitState;
 import com.google.pubsub.v1.PubsubMessage;
 import org.junit.Test;
 import org.junit.runner.RunWith;

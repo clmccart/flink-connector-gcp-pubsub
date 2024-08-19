@@ -26,10 +26,10 @@ import javax.annotation.Nullable;
 
 import java.io.Serializable;
 
-public interface PubSubDeserializationSchema<T> extends Serializable {
+public interface PubSubDeserializationSchemaV2<T> extends Serializable {
 
-    static <T> PubSubDeserializationSchema<T> dataOnly(DeserializationSchema<T> schema) {
-        return new PubSubDeserializationSchema<T>() {
+    static <T> PubSubDeserializationSchemaV2<T> dataOnly(DeserializationSchema<T> schema) {
+        return new PubSubDeserializationSchemaV2<T>() {
             @Override
             public void open(DeserializationSchema.InitializationContext context) throws Exception {
                 schema.open(context);

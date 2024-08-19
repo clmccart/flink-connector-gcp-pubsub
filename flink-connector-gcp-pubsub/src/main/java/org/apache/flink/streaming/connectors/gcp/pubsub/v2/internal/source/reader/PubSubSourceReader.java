@@ -19,10 +19,10 @@ import org.apache.flink.api.connector.source.SourceReaderContext;
 import org.apache.flink.configuration.Configuration;
 import org.apache.flink.connector.base.source.reader.SingleThreadMultiplexSourceReaderBase;
 import org.apache.flink.connector.base.source.reader.splitreader.SplitReader;
+import org.apache.flink.streaming.connectors.gcp.pubsub.v2.internal.source.split.SubscriptionSplit;
+import org.apache.flink.streaming.connectors.gcp.pubsub.v2.internal.source.split.SubscriptionSplitState;
 
 import com.google.pubsub.flink.PubSubDeserializationSchema;
-import com.google.pubsub.flink.internal.source.split.SubscriptionSplit;
-import com.google.pubsub.flink.internal.source.split.SubscriptionSplitState;
 import com.google.pubsub.v1.PubsubMessage;
 
 import java.util.List;

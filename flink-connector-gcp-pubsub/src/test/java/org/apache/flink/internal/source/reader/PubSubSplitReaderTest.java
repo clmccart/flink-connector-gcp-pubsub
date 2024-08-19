@@ -17,6 +17,7 @@ package com.google.pubsub.flink.internal.source.reader;
 
 import org.apache.flink.connector.base.source.reader.RecordsWithSplitIds;
 import org.apache.flink.connector.base.source.reader.splitreader.SplitsAddition;
+import org.apache.flink.streaming.connectors.gcp.pubsub.v2.internal.source.split.SubscriptionSplit;
 
 import com.google.api.core.ApiFutures;
 import com.google.api.core.SettableApiFuture;
@@ -25,7 +26,6 @@ import com.google.common.collect.ImmutableList;
 import com.google.common.collect.ImmutableListMultimap;
 import com.google.common.collect.Multimap;
 import com.google.protobuf.ByteString;
-import com.google.pubsub.flink.internal.source.split.SubscriptionSplit;
 import com.google.pubsub.v1.ProjectSubscriptionName;
 import com.google.pubsub.v1.PubsubMessage;
 import org.junit.Before;

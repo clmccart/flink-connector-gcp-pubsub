@@ -16,9 +16,9 @@
 package com.google.pubsub.flink.internal.sink;
 
 import org.apache.flink.api.connector.sink2.SinkWriter.Context;
+import org.apache.flink.streaming.connectors.gcp.pubsub.v2.PubSubSerializationSchema;
 
 import com.google.protobuf.ByteString;
-import com.google.pubsub.flink.PubSubSerializationSchema;
 import com.google.pubsub.v1.PubsubMessage;
 import org.junit.Before;
 import org.junit.Test;

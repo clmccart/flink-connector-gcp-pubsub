@@ -16,8 +16,7 @@
 package com.google.pubsub.flink.internal.sink;
 
 import org.apache.flink.api.connector.sink2.SinkWriter;
-
-import com.google.pubsub.flink.PubSubSerializationSchema;
+import org.apache.flink.streaming.connectors.gcp.pubsub.v2.PubSubSerializationSchema;
 
 import java.io.IOException;
 

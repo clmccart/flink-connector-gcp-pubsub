@@ -19,8 +19,8 @@ import org.apache.flink.api.connector.source.SplitEnumerator;
 import org.apache.flink.api.connector.source.SplitEnumeratorContext;
 import org.apache.flink.api.connector.source.SplitsAssignment;
 import org.apache.flink.streaming.connectors.gcp.pubsub.proto.PubSubEnumeratorCheckpoint;
+import org.apache.flink.streaming.connectors.gcp.pubsub.v2.internal.source.split.SubscriptionSplit;
 
-import com.google.pubsub.flink.internal.source.split.SubscriptionSplit;
 import com.google.pubsub.v1.ProjectSubscriptionName;
 
 import javax.annotation.Nullable;

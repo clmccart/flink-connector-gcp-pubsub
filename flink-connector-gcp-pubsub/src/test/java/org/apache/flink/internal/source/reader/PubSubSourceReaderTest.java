@@ -21,12 +21,12 @@ import org.apache.flink.configuration.Configuration;
 import org.apache.flink.connector.base.source.reader.RecordsBySplits;
 import org.apache.flink.connector.base.source.reader.splitreader.SplitReader;
 import org.apache.flink.connector.testutils.source.reader.TestingReaderOutput;
+import org.apache.flink.streaming.connectors.gcp.pubsub.v2.internal.source.split.SubscriptionSplit;
+import org.apache.flink.streaming.connectors.gcp.pubsub.v2.internal.source.split.SubscriptionSplitState;
 
 import com.google.common.collect.ImmutableList;
 import com.google.protobuf.ByteString;
 import com.google.pubsub.flink.PubSubDeserializationSchema;
-import com.google.pubsub.flink.internal.source.split.SubscriptionSplit;
-import com.google.pubsub.flink.internal.source.split.SubscriptionSplitState;
 import com.google.pubsub.v1.ProjectSubscriptionName;
 import com.google.pubsub.v1.PubsubMessage;
 import org.junit.Before;

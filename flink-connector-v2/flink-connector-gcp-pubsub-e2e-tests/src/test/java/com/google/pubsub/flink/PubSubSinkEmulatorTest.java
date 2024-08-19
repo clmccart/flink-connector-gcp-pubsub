@@ -16,7 +16,7 @@
 
 package com.google.pubsub.flink;
 
-import com.google.pubsub.flink.util.EmulatorEndpoint;
+import org.apache.flink.streaming.connectors.gcp.pubsub.v2.util.EmulatorEndpoint;
 import com.google.pubsub.v1.PubsubMessage;
 import com.google.pubsub.v1.SubscriptionName;
 import com.google.pubsub.v1.TopicName;

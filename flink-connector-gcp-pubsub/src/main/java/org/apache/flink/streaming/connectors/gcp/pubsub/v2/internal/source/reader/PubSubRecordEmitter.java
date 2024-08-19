@@ -17,21 +17,21 @@ package com.google.pubsub.flink.internal.source.reader;
 
 import org.apache.flink.api.connector.source.SourceOutput;
 import org.apache.flink.connector.base.source.reader.RecordEmitter;
-import org.apache.flink.streaming.connectors.gcp.pubsub.v2.PubSubDeserializationSchema;
+import org.apache.flink.streaming.connectors.gcp.pubsub.v2.PubSubDeserializationSchemaV2;
+import org.apache.flink.streaming.connectors.gcp.pubsub.v2.internal.source.split.SubscriptionSplitState;
 
 import com.google.protobuf.util.Timestamps;
-import com.google.pubsub.flink.internal.source.split.SubscriptionSplitState;
 import com.google.pubsub.v1.PubsubMessage;
 
 import java.io.IOException;
 
 public class PubSubRecordEmitter<T>
         implements RecordEmitter<PubsubMessage, T, SubscriptionSplitState> {
-    private final PubSubDeserializationSchema<T> deserializationSchema;
+    private final PubSubDeserializationSchemaV2<T> deserializationSchema;
     private final AckTracker ackTracker;
 
     public PubSubRecordEmitter(
-            PubSubDeserializationSchema<T> deserializationSchema, AckTracker ackTracker) {
+            PubSubDeserializationSchemaV2<T> deserializationSchema, AckTracker ackTracker) {
         this.deserializationSchema = deserializationSchema;
         this.ackTracker = ackTracker;
     }
