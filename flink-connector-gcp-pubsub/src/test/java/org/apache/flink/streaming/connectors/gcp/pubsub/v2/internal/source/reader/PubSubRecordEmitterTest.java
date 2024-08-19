@@ -13,14 +13,14 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.google.pubsub.flink.internal.source.reader;
+package org.apache.flink.streaming.connectors.gcp.pubsub.v2.internal.source.reader;
 
 import org.apache.flink.api.connector.source.SourceOutput;
+import org.apache.flink.streaming.connectors.gcp.pubsub.v2.PubSubDeserializationSchemaV2;
 import org.apache.flink.streaming.connectors.gcp.pubsub.v2.internal.source.split.SubscriptionSplitState;
 
 import com.google.protobuf.ByteString;
 import com.google.protobuf.util.Timestamps;
-import com.google.pubsub.flink.PubSubDeserializationSchema;
 import com.google.pubsub.v1.PubsubMessage;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -32,7 +32,7 @@ import static org.mockito.Mockito.when;
 
 @RunWith(MockitoJUnitRunner.class)
 public class PubSubRecordEmitterTest {
-    @Mock PubSubDeserializationSchema mockDeserializer;
+    @Mock PubSubDeserializationSchemaV2 mockDeserializer;
     @Mock SourceOutput<String> mockSource;
     @Mock AckTracker mockAckTracker;
 

@@ -13,9 +13,10 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.google.pubsub.flink.internal.source.split;
+package org.apache.flink.internal.source.split;
 
 import org.apache.flink.streaming.connectors.gcp.pubsub.proto.SubscriptionSplitProto;
+import org.apache.flink.streaming.connectors.gcp.pubsub.v2.internal.source.split.SubscriptionSplit;
 
 import com.google.pubsub.v1.ProjectSubscriptionName;
 import org.junit.Test;

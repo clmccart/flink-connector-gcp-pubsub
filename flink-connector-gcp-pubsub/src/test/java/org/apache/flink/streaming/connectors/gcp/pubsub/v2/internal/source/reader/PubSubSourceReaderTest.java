@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.google.pubsub.flink.internal.source.reader;
+package org.apache.flink.streaming.connectors.gcp.pubsub.v2.internal.source.reader;
 
 import org.apache.flink.api.common.serialization.SimpleStringSchema;
 import org.apache.flink.api.connector.source.SourceReaderContext;
@@ -21,12 +21,12 @@ import org.apache.flink.configuration.Configuration;
 import org.apache.flink.connector.base.source.reader.RecordsBySplits;
 import org.apache.flink.connector.base.source.reader.splitreader.SplitReader;
 import org.apache.flink.connector.testutils.source.reader.TestingReaderOutput;
+import org.apache.flink.streaming.connectors.gcp.pubsub.v2.PubSubDeserializationSchemaV2;
 import org.apache.flink.streaming.connectors.gcp.pubsub.v2.internal.source.split.SubscriptionSplit;
 import org.apache.flink.streaming.connectors.gcp.pubsub.v2.internal.source.split.SubscriptionSplitState;
 
 import com.google.common.collect.ImmutableList;
 import com.google.protobuf.ByteString;
-import com.google.pubsub.flink.PubSubDeserializationSchema;
 import com.google.pubsub.v1.ProjectSubscriptionName;
 import com.google.pubsub.v1.PubsubMessage;
 import org.junit.Before;
@@ -60,7 +60,7 @@ public class PubSubSourceReaderTest {
     public void doBeforeEachTest() throws Exception {
         reader =
                 new PubSubSourceReader<>(
-                        PubSubDeserializationSchema.dataOnly(new SimpleStringSchema()),
+                        PubSubDeserializationSchemaV2.dataOnly(new SimpleStringSchema()),
                         mockAckTracker,
                         (ackTracker) -> {
                             return mockSplitReader;

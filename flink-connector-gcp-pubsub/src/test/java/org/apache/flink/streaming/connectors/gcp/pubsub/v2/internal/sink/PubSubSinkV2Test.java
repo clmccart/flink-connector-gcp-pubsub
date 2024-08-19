@@ -15,9 +15,11 @@
  * limitations under the License.
  */
 
-package com.google.pubsub.flink;
+package org.apache.flink.streaming.connectors.gcp.pubsub.v2.internal.sink;
 
 import org.apache.flink.api.common.serialization.SimpleStringSchema;
+import org.apache.flink.streaming.connectors.gcp.pubsub.v2.PubSubSerializationSchema;
+import org.apache.flink.streaming.connectors.gcp.pubsub.v2.PubSubSink;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -26,7 +28,7 @@ import org.mockito.junit.MockitoJUnitRunner;
 import static org.junit.Assert.assertThrows;
 
 @RunWith(MockitoJUnitRunner.class)
-public class PubSubSinkTest {
+public class PubSubSinkV2Test {
     @Test
     public void build_invalidTopic() throws Exception {
         assertThrows(

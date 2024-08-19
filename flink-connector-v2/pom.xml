@@ -36,7 +36,6 @@
       <groupId>org.apache.flink</groupId>
       <artifactId>flink-connector-base</artifactId>
       <version>${flink.version}</version>
-      <scope>provided</scope>
       <exclusions>
         <exclusion>
           <groupId>com.google.code.findbugs</groupId>

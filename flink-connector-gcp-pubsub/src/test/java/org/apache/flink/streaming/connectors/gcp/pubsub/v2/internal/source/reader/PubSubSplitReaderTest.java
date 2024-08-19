@@ -13,10 +13,13 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.google.pubsub.flink.internal.source.reader;
+package org.apache.flink.internal.source.reader;
 
 import org.apache.flink.connector.base.source.reader.RecordsWithSplitIds;
 import org.apache.flink.connector.base.source.reader.splitreader.SplitsAddition;
+import org.apache.flink.streaming.connectors.gcp.pubsub.v2.internal.source.reader.NotifyingPullSubscriber;
+import org.apache.flink.streaming.connectors.gcp.pubsub.v2.internal.source.reader.PubSubNotifyingPullSubscriber;
+import org.apache.flink.streaming.connectors.gcp.pubsub.v2.internal.source.reader.PubSubSplitReader;
 import org.apache.flink.streaming.connectors.gcp.pubsub.v2.internal.source.split.SubscriptionSplit;
 
 import com.google.api.core.ApiFutures;

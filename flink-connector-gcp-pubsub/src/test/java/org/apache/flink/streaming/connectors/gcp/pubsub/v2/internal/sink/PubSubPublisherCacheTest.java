@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.google.pubsub.flink.internal.sink;
+package org.apache.flink.streaming.connectors.gcp.pubsub.v2.internal.sink;
 
 import com.google.cloud.pubsub.v1.Publisher;
 import com.google.pubsub.v1.TopicName;

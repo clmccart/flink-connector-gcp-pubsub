@@ -13,9 +13,11 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.google.pubsub.flink;
+package org.apache.flink.streaming.connectors.gcp.pubsub.v2.internal.source;
 
 import org.apache.flink.api.common.serialization.SimpleStringSchema;
+import org.apache.flink.streaming.connectors.gcp.pubsub.v2.PubSubDeserializationSchemaV2;
+import org.apache.flink.streaming.connectors.gcp.pubsub.v2.PubSubSource;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -24,7 +26,7 @@ import org.mockito.junit.MockitoJUnitRunner;
 import static org.junit.Assert.assertThrows;
 
 @RunWith(MockitoJUnitRunner.class)
-public class PubSubSourceTest {
+public class PubSubSourceV2Test {
     @Test
     public void build_invalidSubscription() throws Exception {
         assertThrows(
@@ -34,7 +36,7 @@ public class PubSubSourceTest {
                 PubSubSource.<String>builder()
                         .setProjectName("project")
                         .setDeserializationSchema(
-                                PubSubDeserializationSchema.dataOnly(new SimpleStringSchema()));
+                                PubSubDeserializationSchemaV2.dataOnly(new SimpleStringSchema()));
         assertThrows(IllegalStateException.class, builder::build);
     }
 
@@ -47,7 +49,7 @@ public class PubSubSourceTest {
                 PubSubSource.<String>builder()
                         .setSubscriptionName("subscription")
                         .setDeserializationSchema(
-                                PubSubDeserializationSchema.dataOnly(new SimpleStringSchema()));
+                                PubSubDeserializationSchemaV2.dataOnly(new SimpleStringSchema()));
         assertThrows(IllegalStateException.class, builder::build);
     }
 
@@ -75,7 +77,7 @@ public class PubSubSourceTest {
                         .setProjectName("project")
                         .setSubscriptionName("subscription")
                         .setDeserializationSchema(
-                                PubSubDeserializationSchema.dataOnly(new SimpleStringSchema()))
+                                PubSubDeserializationSchemaV2.dataOnly(new SimpleStringSchema()))
                         .setMaxOutstandingMessagesCount(-1L);
         assertThrows(IllegalArgumentException.class, builder::build);
     }
@@ -94,7 +96,7 @@ public class PubSubSourceTest {
                         .setProjectName("project")
                         .setSubscriptionName("subscription")
                         .setDeserializationSchema(
-                                PubSubDeserializationSchema.dataOnly(new SimpleStringSchema()))
+                                PubSubDeserializationSchemaV2.dataOnly(new SimpleStringSchema()))
                         .setMaxOutstandingMessagesBytes(-1L);
         assertThrows(IllegalArgumentException.class, builder::build);
     }
@@ -113,7 +115,7 @@ public class PubSubSourceTest {
                         .setProjectName("project")
                         .setSubscriptionName("subscription")
                         .setDeserializationSchema(
-                                PubSubDeserializationSchema.dataOnly(new SimpleStringSchema()))
+                                PubSubDeserializationSchemaV2.dataOnly(new SimpleStringSchema()))
                         .setParallelPullCount(-1);
         assertThrows(IllegalArgumentException.class, builder::build);
     }
