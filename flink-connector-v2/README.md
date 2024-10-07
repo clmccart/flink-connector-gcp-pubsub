@@ -64,7 +64,7 @@ their pom.xml file by adding:
 
 ```xml
 <dependency>
-  <groupId>com.google.pubsub.flink</groupId>
+  <groupId>org.apache.flink</groupId>
   <artifactId>flink-connector-gcp-pubsub</artifactId>
   <version>1.0.0-SNAPSHOT</version>
 </dependency>

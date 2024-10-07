@@ -13,10 +13,9 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package org.apache.flink.internal.source.enumerator;
+package org.apache.flink.streaming.connectors.gcp.pubsub.v2.internal.source.enumerator;
 
 import org.apache.flink.streaming.connectors.gcp.pubsub.proto.PubSubEnumeratorCheckpoint;
-import org.apache.flink.streaming.connectors.gcp.pubsub.v2.internal.source.enumerator.PubSubCheckpointSerializer;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;

@@ -90,6 +90,43 @@ under the License.
 								<relocation>
 									<pattern>com.google</pattern>
 									<shadedPattern>org.apache.flink.streaming.examples.gcp.pubsub.shaded.com.google</shadedPattern>
+								<includes>
+									<include>com.google.cloud.pubsub**</include>
+									<include>com.google.pubsub**</include>
+									<include>com.google.protobuf.**</include>
+									<include>com.google.common.**</include>
+									<include>com.google.guava.**</include>
+								</includes>
+								</relocation>
+								<relocation>
+								<pattern>io.grpc.netty.shaded</pattern>
+								<shadedPattern>
+									org.apache.flink.shaded.io.grpc.netty.shaded
+								</shadedPattern>
+								</relocation>
+								<relocation>
+								<pattern>io</pattern>
+								<shadedPattern>
+									org.apache.flink.shaded.io
+								</shadedPattern>
+								<includes>
+									<include>io.grpc.**</include>
+									<include>io.netty.**</include>
+									<include>io.opencensus.**</include>
+									<include>io.perfmark.**</include>
+								</includes>
+								</relocation>
+								<relocation>
+								<pattern>META-INF/native/io_grpc_netty_shaded_</pattern>
+								<shadedPattern>
+									META-INF/native/org_apache_flink_shaded_io_grpc_netty_shaded_
+								</shadedPattern>
+								</relocation>
+								<relocation>
+								<pattern>META-INF/native/libio_grpc_netty_shaded_</pattern>
+								<shadedPattern>
+									META-INF/native/liborg_apache_flink_shaded_io_grpc_netty_shaded_
+								</shadedPattern>
 								</relocation>
 							</relocations>
 
