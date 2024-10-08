@@ -69,7 +69,6 @@ under the License.
 		</plugin>
 		</plugins>
 	</build>
-
 	<dependencies>
 		<dependency>
 			<groupId>org.apache.flink</groupId>
@@ -101,28 +100,20 @@ under the License.
 			<!-- Version is pulled from google-cloud-bom (loaded via the libraries-bom) -->
 		</dependency>
 		<dependency>
-			<groupId>com.google.auto.value</groupId>
-			<artifactId>auto-value</artifactId>
-			<version>1.10.1</version>
-		</dependency>
-		<dependency>
 			<groupId>com.google.cloud</groupId>
 			<artifactId>google-cloud-pubsub</artifactId>
 			<!-- Version is pulled from google-cloud-bom (loaded via the libraries-bom) -->
 		</dependency>
-
 		<dependency>
 			<groupId>com.google.api.grpc</groupId>
 			<artifactId>grpc-google-cloud-pubsub-v1</artifactId>
 			<!-- Version is pulled from google-cloud-bom (loaded via the libraries-bom) -->
 		</dependency>
-
 		<dependency>
 			<groupId>com.google.auto.value</groupId>
 			<artifactId>auto-value</artifactId>
 			<version>1.10.1</version>
 		</dependency>
-
 		<dependency>
 			<groupId>org.apache.flink</groupId>
 			<artifactId>flink-streaming-java</artifactId>
@@ -145,18 +136,6 @@ under the License.
 			<!-- Version is pulled from google-cloud-bom (loaded via the libraries-bom) -->
 		</dependency>
 
-		<dependency>
-			<groupId>io.grpc</groupId>
-			<artifactId>grpc-netty-shaded</artifactId>
-			<!-- Version is pulled from google-cloud-bom (loaded via the libraries-bom) -->
-			<exclusions>
-				<!-- Since with google-cloud-bom there comes a newer version -->
-				<exclusion>
-					<groupId>io.perfmark</groupId>
-					<artifactId>perfmark-api</artifactId>
-				</exclusion>
-			</exclusions>
-		</dependency>
 
 		<!-- For dependency convergence -->
 		<dependency>
